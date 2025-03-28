@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _jumpPower = 10.0f;
 
+    [SerializeField]
+    private ParticleSystem _jumpCloud;
+
     private Rigidbody _rigidbody;
     private float _moveInput;
 
@@ -64,5 +67,8 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         _rigidbody.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
+
+        //Play the jump cloud effect
+        _jumpCloud.Play();
     }
 }
