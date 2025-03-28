@@ -13,6 +13,12 @@ public class TagSystem : MonoBehaviour
     [SerializeField]
     private float _tagImmunityDuration = 1.0f;
 
+    [SerializeField]
+    private ParticleSystem _particleFlash;
+
+    //[SerializeField]
+    //private Material _coloredMaterial;
+
     private bool _tagged = false;
     private bool _tagImmune = false;
 
@@ -29,6 +35,8 @@ public class TagSystem : MonoBehaviour
 
         //Set the new tagged
         _tagged = true;
+
+        
         return true;
     }
 
@@ -61,6 +69,9 @@ public class TagSystem : MonoBehaviour
                 _tagged = false;
                 _tagImmune = true;
                 Invoke(nameof(SetTagImmuneFalse), _tagImmunityDuration);
+
+                //Play the tagged partical flash
+                _particleFlash.Play();
             }
         }
     }

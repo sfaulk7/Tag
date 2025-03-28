@@ -8,12 +8,14 @@ public class TimerSystem : MonoBehaviour
 {
     [SerializeField]
     private float _startingTime = 30.0f;
-
+    
     [SerializeField]
     private TextMeshProUGUI _timerText;
 
     private float _timeRemaining;
     private TagSystem _tagSystem;
+
+    public float TimeRemaining { get { return _timeRemaining; } }
 
     private void Start()
     {
